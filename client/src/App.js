@@ -6,7 +6,6 @@ function App() {
 
 const [state, setState] = useState({});
 
-
 const handleChange = ({ target }) => {
   setState({[target.name]: target.value});
 };
@@ -27,25 +26,38 @@ axios.get('/api')
   });
 };
 
-// Could create a notification saying "Website not yet registered with Pagestats".
+const Message = () => {
+  const [apiResponse, setApiResponse] = useState("");
+  
+  function Data() {
+	  fetch("/api/db")
+	  .then(x => x.text())
+	  .then(x => setApiResponse(x))
+	  return apiResponse
+  }
+ return <Data />
+}
 
   return (
     <>
-  Analytics
+  <h3>Please enter a domain</h3>
     <form onSubmit={submit}> 
 
       <input
         type="text"
         name="title"
-        placeholder="Enter Website URL"
+        size="50"
+        placeholder=" Example: jasmineball.net or yourdomain.com "
         value={state.title}
         onChange={handleChange}
       />
 
-      <button>Show Statistics</button>
-
+      <button onClick={() => window.location.reload(true)}>Show Statistics</button>
+      
     </form>
+    <br />
 
+    <Message />
     </>
   );
 }
