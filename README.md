@@ -1,4 +1,4 @@
 # Pagestats-Web-Analytics
 
-Tool for graphing the number of website visitors.
+User statistics tracking and graphing tool for websites.
 Visit the website at https://www.pagestats.net.
