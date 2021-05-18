@@ -30,7 +30,7 @@ const Message = () => {
   const [apiResponse, setApiResponse] = useState("");
   
   function Data() {
-	  fetch("/api/db")
+	  fetch("https://pagestats.net/server/")     	  //  fetch("/api/db")  // api is the script, db is within it.
 	  .then(x => x.text())
 	  .then(x => setApiResponse(x))
 	  return apiResponse
